@@ -39,7 +39,7 @@ const Overview = () => {
           </h2>
           <div className="w-24 h-1 bg-gradient-to-r from-cyan-500 to-transparent mx-auto rounded-full mb-8" />
           <p className="text-neutral-400 max-w-3xl mx-auto text-lg leading-relaxed">
-            Nossa abordagem de automação residencial vai além do controle por voz. Projetamos uma infraestrutura física e lógica capaz de antecipar necessidades, combinando design high-end com tecnologia de ponta para criar um ambiente verdadeiramente vivo.
+            Nossa abordagem de automação residencial vai além do controle por voz. Projetagem uma infraestrutura física e lógica capaz de antecipar necessidades, combinando design high-end com tecnologia de ponta para criar um ambiente verdadeiramente vivo.
           </p>
         </motion.div>
 
