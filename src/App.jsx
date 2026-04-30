@@ -11,6 +11,16 @@ import botaof from './assets/botaof.png';
 import botaot from './assets/botaot.png';
 import roteador from './assets/roteador.png';
 import sensorm from './assets/sensorm.png';
+import alxa from './assets/alxa.jpeg';
+import cam from './assets/cam.png';
+import ccentral from './assets/ccentral.jpeg';
+import ccentral1 from './assets/ccentral1.jpeg';
+import chuva from './assets/chuva.png';
+import hub from './assets/hub.jpeg';
+import lamp1 from './assets/lamp1.jpeg';
+import luz1 from './assets/luz1.jpeg';
+import macnt1 from './assets/macnt1.jpeg';
+import som from './assets/som.jpeg';
 
 // --- Imagens de Alta Qualidade (Unsplash) ---
 const HERO_IMG = image1;
@@ -140,7 +150,7 @@ const StickyOverview = () => {
     {
       icon: <Radio className="w-10 h-10 text-blue-400" />,
       title: "Conectividade Mesh Absoluta.",
-      description: "Uma malha invisível de dados. Dispositivos Zigbee e Wi-Fi 6 que conversam entre si, eliminando pontos cegos e criando uma rede que se auto-cura em caso de falhas."
+      description: "Uma malha invisível de dados. Dispositivos Zigbee e Wi-Fi 7 que conversam entre si, eliminando pontos cegos e criando uma rede que se auto-cura em caso de falhas."
     },
     {
       icon: <Fingerprint className="w-10 h-10 text-cyan-400" />,
@@ -233,14 +243,14 @@ const InteractiveVideoSequence = () => {
         />
 
         <motion.div style={{ opacity: textOpacity, scale: textScale, y: textY }} className="relative z-30 text-center px-6 w-full max-w-5xl">
-          <div className="backdrop-blur-xl bg-black/20 border border-white/10 p-10 md:p-16 rounded-[3rem] shadow-2xl">
-            <h2 className="text-5xl md:text-7xl lg:text-9xl font-bold text-white tracking-tighter mb-6 leading-none">
+          <div className="backdrop-blur-2xl bg-black/40 border border-white/15 p-10 md:p-16 rounded-[3rem] shadow-2xl">
+            <h2 className="text-5xl md:text-7xl lg:text-9xl font-bold text-white tracking-tighter mb-6 leading-none drop-shadow-[0_2px_24px_rgba(0,0,0,0.9)]">
               Bem-Vindo ao <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-500 to-cyan-400 drop-shadow-[0_0_30px_rgba(34,211,238,0.3)]">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-500 to-cyan-400 drop-shadow-[0_0_40px_rgba(34,211,238,0.6)]">
                 Futuro
               </span>
             </h2>
-            <p className="text-neutral-400 text-lg md:text-2xl font-light tracking-wide">
+            <p className="text-white/90 text-lg md:text-2xl font-light tracking-wide drop-shadow-[0_1px_8px_rgba(0,0,0,0.8)]">
               Sua presença é o único comando necessário.
             </p>
           </div>
@@ -266,9 +276,9 @@ const ArchitectureDeconstruction = () => {
   return (
     <section className="w-full py-32 bg-neutral-950 border-t border-white/5 relative overflow-hidden">
       <div className="container mx-auto px-6 relative z-10">
-        
+
         {/* Título com Efeito de Luz */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, filter: "brightness(0) blur(10px)" }}
           whileInView={{ opacity: 1, filter: "brightness(1) blur(0px)" }}
           viewport={{ once: false, amount: 0.3 }}
@@ -282,14 +292,14 @@ const ArchitectureDeconstruction = () => {
         </motion.div>
 
         {/* Container do Slider com Efeito de Luz */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, filter: "brightness(0.2) blur(15px)" }}
           whileInView={{ opacity: 1, filter: "brightness(1) blur(0px)" }}
           viewport={{ once: false, amount: 0.2 }}
           transition={{ duration: 0.8, ease: "easeInOut" }}
           className="w-full max-w-6xl mx-auto flex justify-center"
         >
-          <div 
+          <div
             ref={containerRef}
             className="relative w-full h-[60vh] md:h-[70vh] rounded-[2rem] overflow-hidden cursor-ew-resize select-none border border-white/10 shadow-[0_30px_80px_rgba(34,211,238,0.15)] group"
             onMouseMove={(e) => handleMove(e.clientX)}
@@ -301,47 +311,47 @@ const ArchitectureDeconstruction = () => {
             onTouchEnd={() => setIsDragging(false)}
           >
             {/* Imagem de Fundo (A maquete quebrada / casaq) */}
-            <img 
-              src={casaQ} 
-              alt="Engenharia Interna" 
-              className="absolute inset-0 w-full h-full object-cover pointer-events-none" 
+            <img
+              src={casaQ}
+              alt="Engenharia Interna"
+              className="absolute inset-0 w-full h-full object-cover pointer-events-none"
             />
 
             {/* Etiqueta Direita (Fica por baixo do clip-path, visível no lado da casa quebrada) */}
             <div className="absolute inset-y-0 right-0 flex items-center p-4 md:p-8 z-0 pointer-events-none opacity-50 group-hover:opacity-100 transition-opacity">
-               <span className="bg-black/60 backdrop-blur-md px-4 py-2 rounded-full text-cyan-400 font-bold tracking-widest text-xs md:text-sm border border-cyan-400/30 shadow-[0_0_15px_rgba(34,211,238,0.2)]">
-                 O PODER INTERNO
-               </span>
+              <span className="bg-black/60 backdrop-blur-md px-4 py-2 rounded-full text-cyan-400 font-bold tracking-widest text-xs md:text-sm border border-cyan-400/30 shadow-[0_0_15px_rgba(34,211,238,0.2)]">
+                O PODER INTERNO
+              </span>
             </div>
 
             {/* Imagem Frontal (A maquete inteira / casaint) usando Clip-Path */}
-            <div 
+            <div
               className="absolute inset-0 w-full h-full pointer-events-none"
               style={{ clipPath: `inset(0 ${100 - sliderPosition}% 0 0)` }}
             >
-              <img 
-                src={casaInt} 
-                alt="Design Externo" 
-                className="absolute inset-0 w-full h-full object-cover" 
+              <img
+                src={casaInt}
+                alt="Design Externo"
+                className="absolute inset-0 w-full h-full object-cover"
               />
-              
+
               {/* Etiqueta Esquerda (Acompanha a área do clip-path) */}
               <div className="absolute inset-y-0 left-0 flex items-center p-4 md:p-8 pointer-events-none opacity-50 group-hover:opacity-100 transition-opacity">
-                 <span className="bg-black/60 backdrop-blur-md px-4 py-2 rounded-full text-white font-bold tracking-widest text-xs md:text-sm border border-white/20 shadow-xl">
-                   A PERFEIÇÃO EXTERNA
-                 </span>
+                <span className="bg-black/60 backdrop-blur-md px-4 py-2 rounded-full text-white font-bold tracking-widest text-xs md:text-sm border border-white/20 shadow-xl">
+                  A PERFEIÇÃO EXTERNA
+                </span>
               </div>
             </div>
 
             {/* Divisor Visual do Slider */}
-            <div 
-               className="absolute top-0 bottom-0 w-[2px] bg-cyan-400 shadow-[0_0_15px_#00f3ff] pointer-events-none z-10"
-               style={{ left: `${sliderPosition}%` }}
+            <div
+              className="absolute top-0 bottom-0 w-[2px] bg-cyan-400 shadow-[0_0_15px_#00f3ff] pointer-events-none z-10"
+              style={{ left: `${sliderPosition}%` }}
             >
-               {/* Puxador do Slider */}
-               <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-10 h-10 md:w-12 md:h-12 bg-black/80 backdrop-blur-md border border-cyan-400 rounded-full flex items-center justify-center shadow-[0_0_20px_rgba(34,211,238,0.5)] transition-transform duration-200" style={{ transform: `translate(-50%, -50%) ${isDragging ? 'scale(1.1)' : 'scale(1)'}` }}>
-                  <span className="text-cyan-400 font-bold text-base md:text-lg tracking-widest leading-none pb-[2px]">↔</span>
-               </div>
+              {/* Puxador do Slider */}
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-10 h-10 md:w-12 md:h-12 bg-black/80 backdrop-blur-md border border-cyan-400 rounded-full flex items-center justify-center shadow-[0_0_20px_rgba(34,211,238,0.5)] transition-transform duration-200" style={{ transform: `translate(-50%, -50%) ${isDragging ? 'scale(1.1)' : 'scale(1)'}` }}>
+                <span className="text-cyan-400 font-bold text-base md:text-lg tracking-widest leading-none pb-[2px]">↔</span>
+              </div>
             </div>
 
           </div>
@@ -357,29 +367,19 @@ const Catalog = () => {
 
   const products = [
     { id: 1, name: 'Interruptor com Botão Físico', category: 'Controle', image: botaof, description: 'Design premium com feedback tátil mecânico para controle preciso da iluminação e automações.' },
-    { id: 2, name: 'Interruptor com Botão Touch', category: 'Controle', image: botaot, description: 'Painel de vidro temperado capacitivo com iluminação LED sutil, combinando perfeitamente com ambientes minimalistas.' },
-    { id: 3, name: 'Roteador Wi-Fi 7', category: 'Conectividade', image: roteador, description: 'Velocidade extrema e baixíssima latência para suportar centenas de dispositivos inteligentes simultâneos sem gargalos.' },
-    { id: 4, name: 'Sensor de Presença Humana', category: 'Sensores', image: sensorm, description: 'Vai além do movimento. Detecta até a respiração para manter a automação ativa enquanto você estiver no ambiente.' },
-    { id: 5, name: 'Relé Estado Sólido', category: 'Automação', image: 'https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=800&q=80', description: 'Transforma a iluminação convencional em inteligente sem ruídos mecânicos e com durabilidade infinita.' },
-    { id: 6, name: 'Fechadura Titanium', category: 'Acesso', image: 'https://images.unsplash.com/photo-1605810230434-7631ac76ec81?auto=format&fit=crop&w=800&q=80', description: 'Biometria 3D de alta precisão. Desbloqueia a porta 0.3s antes de você tocar na maçaneta.' },
-    { id: 7, name: 'Motor Cortina Mag', category: 'Conforto', image: 'https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=800&q=80', description: 'Levitação magnética e operação ultra-silenciosa. Sincronização inteligente com a luz solar.' },
-    { id: 8, name: 'Termostato Preditivo', category: 'Clima', image: 'https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=800&q=80', description: 'Ajusta a temperatura ambiente cruzando dados de previsão do tempo e histórico de uso familiar.' },
-    { id: 9, name: 'Áudio Espacial', category: 'Mídia', image: 'https://images.unsplash.com/photo-1545454675-3531b543be5d?auto=format&fit=crop&w=800&q=80', description: 'O som acompanha você pela casa. Caixas acústicas invisíveis embutidas no gesso da arquitetura.' },
-    { id: 10, name: 'LED Circadiano', category: 'Luz', image: 'https://images.unsplash.com/photo-1550684848-fac1c5b4e853?auto=format&fit=crop&w=800&q=80', description: 'Iluminação baseada em cromoterapia que adapta a temperatura de cor para alinhar com seu ciclo de sono.' },
-    { id: 11, name: 'Drone Sentinela', category: 'Segurança', image: 'https://images.unsplash.com/photo-1473968512647-3e447244af8f?auto=format&fit=crop&w=800&q=80', description: 'Patrulha perimetral. Decola automaticamente em caso de intrusão, transmitindo imagens em tempo real.' },
-    { id: 12, name: 'Espelho Oled', category: 'Lifestyle', image: 'https://images.unsplash.com/photo-1618220179428-22790b46a0eb?auto=format&fit=crop&w=800&q=80', description: 'Painel interativo OLED invisível sob o vidro. Mostra sua agenda e clima enquanto você se arruma.' },
-    { id: 13, name: 'Válvula Flow Smart', category: 'Água', image: 'https://images.unsplash.com/photo-1581092580497-e0d23cbdf1af?auto=format&fit=crop&w=800&q=80', description: 'Inteligência hidráulica. Corta o fornecimento de água instantaneamente ao detectar fluxos irregulares.' },
-    { id: 14, name: 'Monitor Energia AI', category: 'Energia', image: 'https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=800&q=80', description: 'Análise de rede elétrica. Identifica o consumo em tempo real da assinatura elétrica de cada eletrodoméstico.' },
-    { id: 15, name: 'Carregador EV Max', category: 'Garagem', image: 'https://images.unsplash.com/photo-1592859675234-90d18d45f340?auto=format&fit=crop&w=800&q=80', description: 'Carregador para veículos elétricos. Otimiza o abastecimento usando períodos de tarifa de energia reduzida.' },
-    { id: 16, name: 'Vidro Eletrocrômico', category: 'Estrutura', image: 'https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=800&q=80', description: 'Privacidade sob demanda. Transições de opaco para transparente de forma instantânea.' },
-    { id: 17, name: 'Sensor Ar Puro', category: 'Saúde', image: 'https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=800&q=80', description: 'Monitora níveis de CO2 e poluentes, acionando renovadores de ar automaticamente quando necessário.' },
-    { id: 18, name: 'Fita LED Cob Neo', category: 'Decor', image: 'https://images.unsplash.com/photo-1550684848-fac1c5b4e853?auto=format&fit=crop&w=800&q=80', description: 'Iluminação contínua de alta densidade sem efeito pontilhado, perfeita para sancas e rodapés de alto padrão.' },
-    { id: 19, name: 'Medidor Smart Meter', category: 'Energia', image: 'https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?auto=format&fit=crop&w=800&q=80', description: 'Dashboards financeiros integrados para acompanhamento e otimização total do consumo energético.' },
-    { id: 20, name: 'Routine Manager', category: 'Core', image: 'https://images.unsplash.com/photo-1501139083538-0139583c060f?auto=format&fit=crop&w=800&q=80', description: 'Sincroniza os horários da casa com a rotina e as mudanças de fuso horário e hábitos da família.' },
-    { id: 21, name: 'Aspirador Lidar AI', category: 'Limpeza', image: 'https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&w=800&q=80', description: 'Navegação por LIDAR de nível industrial. Mapeia e higieniza os ambientes silenciosamente quando a casa está vazia.' },
-    { id: 22, name: 'Persiana Lógica', category: 'Conforto', image: 'https://images.unsplash.com/photo-1558384515-5dcfa2f86687?auto=format&fit=crop&w=800&q=80', description: 'Mecanismo inteligente que regula a entrada de luz natural para maximizar o conforto térmico e economizar energia.' },
-    { id: 23, name: 'Arandela de Solo', category: 'Jardim', image: 'https://images.unsplash.com/photo-1528698827591-e59cad89a8ce?auto=format&fit=crop&w=800&q=80', description: 'Design minimalista integrado ao paisagismo. Acende de forma suave e sequencial ao detectar passos pelo quintal.' },
-    { id: 24, name: 'Nó Mesh Outdoor', category: 'Rede', image: 'https://images.unsplash.com/photo-1496247749665-49cf5b1022e9?auto=format&fit=crop&w=800&q=80', description: 'Repetidor à prova d\'água que garante que o sinal Wi-Fi 6 de alta performance se estenda à piscina e área gourmet.' }
+    { id: 2, name: 'Interruptor com Botão Touch', category: 'Controle', image: botaot, description: 'Painel de vidro temperado capacitivo com iluminação LED sutil, ideal para ambientes minimalistas.' },
+    { id: 3, name: 'Roteador Wi-Fi 7', category: 'Conectividade', image: roteador, description: 'Velocidade extrema e baixíssima latência para suportar centenas de dispositivos simultâneos.' },
+    { id: 4, name: 'Sensor de Presença Humana', category: 'Sensores', image: sensorm, description: 'Detecta até a respiração para manter a automação ativa enquanto você estiver no ambiente.' },
+    { id: 5, name: 'Assistente de Voz', category: 'Controle', image: alxa, description: 'Integração total com assistentes de voz para controle natural e intuitivo de toda a casa.' },
+    { id: 6, name: 'Câmera de Segurança 2K', category: 'Segurança', image: cam, description: 'Visão noturna colorida, detecção de pessoas por IA e gravação contínua em resolução 2K.' },
+    { id: 7, name: 'Central de Automação', category: 'Infraestrutura', image: ccentral, description: 'Núcleo de processamento local que gerencia todos os dispositivos com latência abaixo de 10ms.' },
+    { id: 8, name: 'Painel de Controle Central', category: 'Infraestrutura', image: ccentral1, description: 'Interface inteligente de parede que centraliza o comando e integra todos os dispositivos da sua casa.' },
+    { id: 9, name: 'Sensor Climático Externo', category: 'Clima', image: chuva, description: 'Monitora precipitação e temperatura para acionar persianas, irrigação e ventilação automaticamente.' },
+    { id: 10, name: 'Hub Zigbee 3.0', category: 'Infraestrutura', image: hub, description: 'Gerencia até 200 dispositivos Zigbee via conexão cabeada RJ45 com uptime de 99,9%.' },
+    { id: 11, name: 'Lâmpada Inteligente', category: 'Iluminação', image: lamp1, description: 'Temperatura de cor ajustável de 2700K a 6500K com dimmer suave via app ou automação.' },
+    { id: 12, name: 'Controlador de Luz', category: 'Iluminação', image: luz1, description: 'Cenas de luz programáveis que adaptam a iluminação ao longo do dia e à rotina da família.' },
+    { id: 13, name: 'Fechadura Smart', category: 'Acesso', image: macnt1, description: 'Desbloqueio por biometria, app e código temporário. Histórico completo de acessos em tempo real.' },
+    { id: 14, name: 'Sistema de Áudio Multiroom', category: 'Entretenimento', image: som, description: 'Som imersivo sincronizado em todos os ambientes, sem atrasos e com controle por voz ou app.' },
   ];
 
   const duplicatedProducts = [...products, ...products];
@@ -396,29 +396,29 @@ const Catalog = () => {
         }
       }, 200);
     }
-    
+
     const handleResize = () => {
       if (carouselRef.current) {
         setWidth(carouselRef.current.scrollWidth / 2);
       }
     };
-    
+
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, [products]);
 
   useAnimationFrame((time, delta) => {
     if (isDragging || width === 0) return;
-    
+
     let currentX = x.get();
     currentX -= 0.025 * delta; // Mais lento e fluido
-    
+
     if (currentX <= -width) {
       currentX += width;
     } else if (currentX > 0) {
       currentX -= width;
     }
-    
+
     x.set(currentX);
   });
 
@@ -463,18 +463,18 @@ const Catalog = () => {
             className="flex gap-8 whitespace-nowrap min-w-max cursor-grab py-10"
           >
             {duplicatedProducts.map((product, index) => (
-              <div 
+              <div
                 key={`${product.id}-${index}`}
                 className="relative w-72 md:w-80 h-96 flex-shrink-0 rounded-[2rem] overflow-hidden border border-white/10 shadow-xl group"
                 onClick={() => handleProductClick(product)}
               >
-                 <img src={product.image} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale group-hover:grayscale-0 opacity-60 group-hover:opacity-100" />
-                 <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent opacity-80 group-hover:opacity-40 transition-opacity duration-300" />
-                 
-                 <div className="absolute inset-x-0 bottom-0 p-8 flex flex-col pointer-events-none">
-                    <span className="text-cyan-400 font-bold text-xs uppercase tracking-wider mb-2">{product.category}</span>
-                    <h4 className="text-white font-bold text-2xl whitespace-normal leading-tight">{product.name}</h4>
-                 </div>
+                <img src={product.image} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale group-hover:grayscale-0 opacity-60 group-hover:opacity-100" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent opacity-80 group-hover:opacity-40 transition-opacity duration-300" />
+
+                <div className="absolute inset-x-0 bottom-0 p-8 flex flex-col pointer-events-none">
+                  <span className="text-cyan-400 font-bold text-xs uppercase tracking-wider mb-2">{product.category}</span>
+                  <h4 className="text-white font-bold text-2xl whitespace-normal leading-tight">{product.name}</h4>
+                </div>
               </div>
             ))}
           </motion.div>
@@ -492,12 +492,12 @@ const Catalog = () => {
           >
             <div className="absolute inset-0 cursor-pointer" onClick={() => { setSelectedProduct(null); setIsModalFlipped(false); }} />
 
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, scale: 0.85, y: 40 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.9, y: 20 }}
               transition={{ type: "spring", stiffness: 300, damping: 25, mass: 0.8 }}
-              className="relative w-full max-w-3xl h-[60vh] md:h-[75vh] flex items-center justify-center z-10" 
+              className="relative w-full max-w-3xl h-[60vh] md:h-[75vh] flex items-center justify-center z-10"
               style={{ perspective: '1000px' }}
             >
               <motion.div
@@ -507,65 +507,65 @@ const Catalog = () => {
                 transition={{ type: "spring", stiffness: 260, damping: 20 }}
               >
                 {/* FRONT - Image only */}
-                <div 
+                <div
                   className="absolute inset-0 cursor-pointer rounded-[2rem] overflow-hidden shadow-[0_0_80px_rgba(34,211,238,0.15)] border border-white/10 group bg-neutral-900"
                   style={{ backfaceVisibility: 'hidden' }}
                   onClick={() => setIsModalFlipped(true)}
                 >
-                   <img src={selectedProduct.image} alt={selectedProduct.name} className="w-full h-full object-cover" />
-                   
-                   <div className="absolute inset-x-0 bottom-0 p-8 bg-gradient-to-t from-black/90 to-transparent pointer-events-none">
-                     <h3 className="text-3xl md:text-5xl font-bold text-white mb-2 tracking-tight drop-shadow-lg">{selectedProduct.name}</h3>
-                   </div>
+                  <img src={selectedProduct.image} alt={selectedProduct.name} className="w-full h-full object-cover" />
 
-                   <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 bg-black/30 transition-opacity duration-300 pointer-events-none">
-                      <div className="bg-black/50 backdrop-blur-md px-6 py-3 rounded-full text-white flex items-center gap-3 border border-white/20 shadow-xl">
-                        <RefreshCw className="w-5 h-5 group-hover:rotate-180 transition-transform duration-700" />
-                        <span className="font-semibold tracking-wide">Clique para ver especificações</span>
-                      </div>
-                   </div>
-                   
-                   <button
-                     onClick={(e) => { e.stopPropagation(); setSelectedProduct(null); setIsModalFlipped(false); }}
-                     className="absolute top-6 right-6 z-30 p-2 bg-black/50 hover:bg-white/10 border border-white/10 rounded-full text-white transition-colors backdrop-blur-md cursor-pointer"
-                   >
-                     <X className="w-6 h-6" />
-                   </button>
+                  <div className="absolute inset-x-0 bottom-0 p-8 bg-gradient-to-t from-black/90 to-transparent pointer-events-none">
+                    <h3 className="text-3xl md:text-5xl font-bold text-white mb-2 tracking-tight drop-shadow-lg">{selectedProduct.name}</h3>
+                  </div>
+
+                  <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 bg-black/30 transition-opacity duration-300 pointer-events-none">
+                    <div className="bg-black/50 backdrop-blur-md px-6 py-3 rounded-full text-white flex items-center gap-3 border border-white/20 shadow-xl">
+                      <RefreshCw className="w-5 h-5 group-hover:rotate-180 transition-transform duration-700" />
+                      <span className="font-semibold tracking-wide">Clique para ver especificações</span>
+                    </div>
+                  </div>
+
+                  <button
+                    onClick={(e) => { e.stopPropagation(); setSelectedProduct(null); setIsModalFlipped(false); }}
+                    className="absolute top-6 right-6 z-30 p-2 bg-black/50 hover:bg-white/10 border border-white/10 rounded-full text-white transition-colors backdrop-blur-md cursor-pointer"
+                  >
+                    <X className="w-6 h-6" />
+                  </button>
                 </div>
 
                 {/* BACK - Specs */}
-                <div 
+                <div
                   className="absolute inset-0 bg-neutral-900 rounded-[2rem] p-8 md:p-14 border border-cyan-400/30 shadow-[0_0_80px_rgba(34,211,238,0.15)] flex flex-col justify-between"
                   style={{ backfaceVisibility: 'hidden', transform: 'rotateY(180deg)' }}
                 >
-                   <div>
-                     <div className="flex justify-between items-start mb-8">
-                       <div>
-                         <div className="w-12 h-12 bg-cyan-500/10 rounded-full flex items-center justify-center mb-6">
-                            <Cpu className="w-6 h-6 text-cyan-400" />
-                         </div>
-                         <span className="text-cyan-400 font-bold text-sm uppercase tracking-wider mb-2 block">{selectedProduct.category}</span>
-                         <h3 className="text-4xl md:text-5xl font-bold text-white tracking-tight leading-tight">{selectedProduct.name}</h3>
-                       </div>
-                       <button onClick={() => { setSelectedProduct(null); setIsModalFlipped(false); }} className="p-2 bg-white/5 hover:bg-white/10 border border-white/10 rounded-full text-white transition-colors cursor-pointer">
-                         <X className="w-6 h-6" />
-                       </button>
-                     </div>
-                     
-                     <div className="w-full h-[1px] bg-gradient-to-r from-cyan-500/50 to-transparent mb-8" />
-                     
-                     <p className="text-neutral-300 text-lg md:text-xl leading-relaxed whitespace-normal">
-                       {selectedProduct.description}
-                     </p>
-                   </div>
-                   
-                   <button 
-                     onClick={() => setIsModalFlipped(false)}
-                     className="self-start px-6 py-4 bg-white/5 hover:bg-white/10 border border-white/10 text-white rounded-2xl font-semibold transition-all flex items-center gap-3 cursor-pointer"
-                   >
-                     <RefreshCw className="w-5 h-5" />
-                     Voltar para Foto
-                   </button>
+                  <div>
+                    <div className="flex justify-between items-start mb-8">
+                      <div>
+                        <div className="w-12 h-12 bg-cyan-500/10 rounded-full flex items-center justify-center mb-6">
+                          <Cpu className="w-6 h-6 text-cyan-400" />
+                        </div>
+                        <span className="text-cyan-400 font-bold text-sm uppercase tracking-wider mb-2 block">{selectedProduct.category}</span>
+                        <h3 className="text-4xl md:text-5xl font-bold text-white tracking-tight leading-tight">{selectedProduct.name}</h3>
+                      </div>
+                      <button onClick={() => { setSelectedProduct(null); setIsModalFlipped(false); }} className="p-2 bg-white/5 hover:bg-white/10 border border-white/10 rounded-full text-white transition-colors cursor-pointer">
+                        <X className="w-6 h-6" />
+                      </button>
+                    </div>
+
+                    <div className="w-full h-[1px] bg-gradient-to-r from-cyan-500/50 to-transparent mb-8" />
+
+                    <p className="text-neutral-300 text-lg md:text-xl leading-relaxed whitespace-normal">
+                      {selectedProduct.description}
+                    </p>
+                  </div>
+
+                  <button
+                    onClick={() => setIsModalFlipped(false)}
+                    className="self-start px-6 py-4 bg-white/5 hover:bg-white/10 border border-white/10 text-white rounded-2xl font-semibold transition-all flex items-center gap-3 cursor-pointer"
+                  >
+                    <RefreshCw className="w-5 h-5" />
+                    Voltar para Foto
+                  </button>
                 </div>
               </motion.div>
             </motion.div>
@@ -644,7 +644,7 @@ const LocationMap = () => {
 const Footer = () => {
   return (
     <footer className="w-full bg-black border-t border-white/5 py-16 text-center relative overflow-hidden">
-      <motion.div 
+      <motion.div
         initial={{ opacity: 0, filter: "brightness(0) blur(10px)" }}
         whileInView={{ opacity: 1, filter: "brightness(1) blur(0px)" }}
         viewport={{ once: false, amount: 0.5 }}

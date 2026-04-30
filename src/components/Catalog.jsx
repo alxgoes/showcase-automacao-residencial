@@ -18,15 +18,15 @@ const Catalog = () => {
   // Animação individual de cada card (entrada estilo ficção científica)
   const itemVariants = {
     hidden: { opacity: 0, y: 60, scale: 0.9, filter: "blur(10px)" },
-    show: { 
-      opacity: 1, 
-      y: 0, 
+    show: {
+      opacity: 1,
+      y: 0,
       scale: 1,
       filter: "blur(0px)",
-      transition: { 
-        type: "spring", 
-        stiffness: 120, 
-        damping: 15 
+      transition: {
+        type: "spring",
+        stiffness: 120,
+        damping: 15
       }
     }
   };
@@ -124,7 +124,7 @@ const Catalog = () => {
       <div className="absolute top-1/2 left-0 w-[800px] h-[800px] bg-cyan-600/5 rounded-full blur-[150px] pointer-events-none -translate-y-1/2" />
 
       <div className="container mx-auto px-6 relative z-10">
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -141,8 +141,8 @@ const Catalog = () => {
             </p>
           </div>
           <div>
-            <a 
-              href="#" 
+            <a
+              href="#"
               onClick={(e) => e.preventDefault()}
               className="inline-flex items-center gap-3 px-8 py-4 bg-white/5 hover:bg-cyan-500/10 text-white rounded-full transition-all duration-300 border border-white/10 hover:border-cyan-400 shadow-lg hover:shadow-[0_0_20px_rgba(34,211,238,0.2)]"
             >
@@ -153,7 +153,7 @@ const Catalog = () => {
         </motion.div>
 
         {/* Grade de Produtos Animada */}
-        <motion.div 
+        <motion.div
           variants={containerVariants}
           initial="hidden"
           whileInView="show"
@@ -172,9 +172,9 @@ const Catalog = () => {
               <div className="relative h-56 overflow-hidden">
                 <div className="absolute inset-0 bg-neutral-950/40 group-hover:bg-transparent transition-colors duration-500 z-10" />
                 <div className="absolute inset-0 bg-gradient-to-t from-neutral-950 to-transparent z-10 opacity-90" />
-                
-                <img 
-                  src={product.image} 
+
+                <img
+                  src={product.image}
                   alt={product.name}
                   className="w-full h-full object-cover transform scale-100 group-hover:scale-110 transition-transform duration-700 ease-out"
                 />
