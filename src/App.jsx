@@ -50,7 +50,7 @@ const ScrollRevealText = ({ text }) => {
           <motion.span
             key={i}
             style={{ opacity, y }}
-            className={isHighlight ? "text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500" : "text-white"}
+            className={isHighlight ? "text-transparent bg-clip-text bg-gradient-to-r from-red-500 via-orange-400 to-yellow-400" : "text-white"}
           >
             {word}
           </motion.span>
@@ -92,15 +92,15 @@ const Hero = () => {
         >
           <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full border border-white/10 bg-white/[0.03] backdrop-blur-2xl mb-8">
             <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-cyan-500"></span>
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-orange-400 opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-orange-500"></span>
             </span>
             <span className="text-neutral-300 text-xs font-semibold tracking-widest uppercase">Sistema Online</span>
           </div>
 
           <h1 className="text-6xl md:text-8xl lg:text-[10rem] font-bold tracking-tighter text-white mb-6 leading-none">
             Residência <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-br from-white via-cyan-200 to-cyan-600 drop-shadow-2xl">
+            <span className="text-transparent bg-clip-text bg-gradient-to-br from-white via-orange-200 to-red-600 drop-shadow-2xl">
               Pro
             </span>
           </h1>
@@ -120,7 +120,7 @@ const Hero = () => {
               <motion.div
                 animate={{ y: [0, 12, 0], opacity: [1, 0, 1] }}
                 transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
-                className="w-1 h-2 bg-cyan-400 rounded-full"
+                className="w-1 h-2 bg-orange-400 rounded-full"
               />
             </div>
           </motion.div>
@@ -143,19 +143,22 @@ const StatementSection = () => {
 const StickyOverview = () => {
   const features = [
     {
-      icon: <Cpu className="w-10 h-10 text-cyan-400" />,
+      icon: <Cpu className="w-10 h-10 text-white" />,
       title: "Processamento Neural Local.",
-      description: "Esqueça a dependência da nuvem. Nosso hub proprietário processa automações complexas em milissegundos, garantindo privacidade absoluta e funcionamento mesmo sem internet."
+      description: "Esqueça a dependência da nuvem. Nosso hub proprietário processa automações complexas em milissegundos, garantindo privacidade absoluta e funcionamento mesmo sem internet.",
+      gradient: "linear-gradient(137deg, #dc2626 0%, #ea580c 45%, #f97316 100%)"
     },
     {
-      icon: <Radio className="w-10 h-10 text-blue-400" />,
+      icon: <Radio className="w-10 h-10 text-white" />,
       title: "Conectividade Mesh Absoluta.",
-      description: "Uma malha invisível de dados. Dispositivos Zigbee e Wi-Fi 7 que conversam entre si, eliminando pontos cegos e criando uma rede que se auto-cura em caso de falhas."
+      description: "Uma malha invisível de dados. Dispositivos Zigbee e Wi-Fi 7 que conversam entre si, eliminando pontos cegos e criando uma rede que se auto-cura em caso de falhas.",
+      gradient: "linear-gradient(137deg, #ea580c 0%, #f97316 45%, #f59e0b 100%)"
     },
     {
-      icon: <Fingerprint className="w-10 h-10 text-cyan-400" />,
+      icon: <Fingerprint className="w-10 h-10 text-white" />,
       title: "Segurança Biométrica Invisível.",
-      description: "Sua presença é a sua chave. Reconhecimento facial 3D nas entradas e sensores de radar milimétrico internamente. A casa sabe exatamente quem está em cada ambiente."
+      description: "Sua presença é a sua chave. Reconhecimento facial 3D nas entradas e sensores de radar milimétrico internamente. A casa sabe exatamente quem está em cada ambiente.",
+      gradient: "linear-gradient(137deg, #f97316 0%, #f59e0b 45%, #fcd34d 100%)"
     }
   ];
 
@@ -172,7 +175,7 @@ const StickyOverview = () => {
             >
               <h2 className="text-5xl md:text-7xl font-bold text-white tracking-tighter leading-tight mb-8">
                 Poder. <br />
-                <span className="text-neutral-600">Invisível.</span>
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-500 via-orange-400 to-yellow-400">Invisível.</span>
               </h2>
               <p className="text-xl text-neutral-400 max-w-md leading-relaxed">
                 Nós escondemos a complexidade. Você experimenta apenas a mágica de uma infraestrutura que pensa por você.
@@ -188,14 +191,29 @@ const StickyOverview = () => {
                 whileInView={{ opacity: 1, filter: "brightness(1) blur(0px)" }}
                 viewport={{ once: false, margin: "-20%" }}
                 transition={{ duration: 0.8, ease: "easeInOut" }}
-                className="bg-neutral-900/40 backdrop-blur-2xl border border-white/5 p-12 rounded-[2.5rem] relative overflow-hidden group"
+                className="relative group w-full"
               >
-                <div className="absolute top-0 right-0 w-64 h-64 bg-cyan-500/10 rounded-full blur-[80px] group-hover:bg-cyan-400/20 transition-colors duration-700 pointer-events-none" />
-                <div className="mb-8 p-4 bg-black/50 border border-white/5 rounded-2xl inline-block shadow-2xl">
-                  {feature.icon}
+                {/* Glow Background */}
+                <div 
+                  className="absolute top-0 left-0 w-full h-full opacity-60 rounded-[2.5rem] pointer-events-none transition-opacity duration-500 group-hover:opacity-100"
+                  style={{ background: feature.gradient, filter: "blur(45px)" }}
+                />
+                
+                {/* Foreground Card */}
+                <div 
+                  className="relative bg-neutral-900/40 backdrop-blur-2xl p-12 rounded-[2.5rem] overflow-hidden z-10"
+                  style={{
+                    border: "8px solid transparent",
+                    background: `linear-gradient(#1A1A1C, #1A1A1C) padding-box, ${feature.gradient} border-box`
+                  }}
+                >
+                  <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full blur-[80px] pointer-events-none" />
+                  <div className="mb-8 p-4 bg-black/50 border border-white/5 rounded-2xl inline-block shadow-2xl">
+                    {feature.icon}
+                  </div>
+                  <h3 className="text-3xl font-bold text-white mb-6 tracking-tight">{feature.title}</h3>
+                  <p className="text-lg text-neutral-400 leading-relaxed">{feature.description}</p>
                 </div>
-                <h3 className="text-3xl font-bold text-white mb-6 tracking-tight">{feature.title}</h3>
-                <p className="text-lg text-neutral-400 leading-relaxed">{feature.description}</p>
               </motion.div>
             ))}
           </div>
@@ -234,7 +252,7 @@ const InteractiveVideoSequence = () => {
             className="w-full h-full object-cover"
           />
           <motion.div style={{ opacity: lightsOverlayOpacity }} className="absolute inset-0 bg-black/95 z-10" />
-          <motion.div style={{ opacity: lensFlareOpacity }} className="absolute inset-0 bg-cyan-400/20 mix-blend-screen z-10" />
+          <motion.div style={{ opacity: lensFlareOpacity }} className="absolute inset-0 bg-orange-400/20 mix-blend-screen z-10" />
         </motion.div>
 
         <motion.div
@@ -246,7 +264,7 @@ const InteractiveVideoSequence = () => {
           <div className="backdrop-blur-2xl bg-black/40 border border-white/15 p-10 md:p-16 rounded-[3rem] shadow-2xl">
             <h2 className="text-5xl md:text-7xl lg:text-9xl font-bold text-white tracking-tighter mb-6 leading-none drop-shadow-[0_2px_24px_rgba(0,0,0,0.9)]">
               Bem-Vindo ao <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-500 to-cyan-400 drop-shadow-[0_0_40px_rgba(34,211,238,0.6)]">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-500 via-orange-400 to-yellow-400 drop-shadow-[0_0_40px_rgba(249,115,22,0.6)]">
                 Futuro
               </span>
             </h2>
@@ -286,7 +304,7 @@ const ArchitectureDeconstruction = () => {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-6xl font-bold text-white tracking-tighter mb-6">
-            O Design <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500 drop-shadow-[0_0_15px_rgba(34,211,238,0.5)]">vs</span> A Engenharia
+            O Design <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-500 via-orange-400 to-yellow-400 drop-shadow-[0_0_15px_rgba(249,115,22,0.5)]">vs</span> A Engenharia
           </h2>
           <p className="text-neutral-400 text-lg md:text-xl font-light">Deslize para desconstruir e ver a tecnologia embarcada.</p>
         </motion.div>
@@ -301,7 +319,7 @@ const ArchitectureDeconstruction = () => {
         >
           <div
             ref={containerRef}
-            className="relative w-full h-[60vh] md:h-[70vh] rounded-[2rem] overflow-hidden cursor-ew-resize select-none border border-white/10 shadow-[0_30px_80px_rgba(34,211,238,0.15)] group"
+            className="relative w-full h-[60vh] md:h-[70vh] rounded-[2rem] overflow-hidden cursor-ew-resize select-none border border-white/10 shadow-[0_30px_80px_rgba(249,115,22,0.15)] hover:shadow-[0_0_50px_rgba(249,115,22,0.4)] transition-shadow duration-500 group"
             onMouseMove={(e) => handleMove(e.clientX)}
             onMouseDown={() => setIsDragging(true)}
             onMouseUp={() => setIsDragging(false)}
@@ -319,7 +337,7 @@ const ArchitectureDeconstruction = () => {
 
             {/* Etiqueta Direita (Fica por baixo do clip-path, visível no lado da casa quebrada) */}
             <div className="absolute inset-y-0 right-0 flex items-center p-4 md:p-8 z-0 pointer-events-none opacity-50 group-hover:opacity-100 transition-opacity">
-              <span className="bg-black/60 backdrop-blur-md px-4 py-2 rounded-full text-cyan-400 font-bold tracking-widest text-xs md:text-sm border border-cyan-400/30 shadow-[0_0_15px_rgba(34,211,238,0.2)]">
+              <span className="bg-black/60 backdrop-blur-md px-4 py-2 rounded-full text-orange-400 font-bold tracking-widest text-xs md:text-sm border border-orange-400/30 shadow-[0_0_15px_rgba(249,115,22,0.2)]">
                 O PODER INTERNO
               </span>
             </div>
@@ -345,12 +363,12 @@ const ArchitectureDeconstruction = () => {
 
             {/* Divisor Visual do Slider */}
             <div
-              className="absolute top-0 bottom-0 w-[2px] bg-cyan-400 shadow-[0_0_15px_#00f3ff] pointer-events-none z-10"
+              className="absolute top-0 bottom-0 w-[2px] bg-orange-400 shadow-[0_0_15px_#f97316] pointer-events-none z-10"
               style={{ left: `${sliderPosition}%` }}
             >
               {/* Puxador do Slider */}
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-10 h-10 md:w-12 md:h-12 bg-black/80 backdrop-blur-md border border-cyan-400 rounded-full flex items-center justify-center shadow-[0_0_20px_rgba(34,211,238,0.5)] transition-transform duration-200" style={{ transform: `translate(-50%, -50%) ${isDragging ? 'scale(1.1)' : 'scale(1)'}` }}>
-                <span className="text-cyan-400 font-bold text-base md:text-lg tracking-widest leading-none pb-[2px]">↔</span>
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-10 h-10 md:w-12 md:h-12 bg-black/80 backdrop-blur-md border border-orange-400 rounded-full flex items-center justify-center shadow-[0_0_20px_rgba(249,115,22,0.5)] transition-transform duration-200" style={{ transform: `translate(-50%, -50%) ${isDragging ? 'scale(1.1)' : 'scale(1)'}` }}>
+                <span className="text-orange-400 font-bold text-base md:text-lg tracking-widest leading-none pb-[2px]">↔</span>
               </div>
             </div>
 
@@ -440,7 +458,7 @@ const Catalog = () => {
           className="text-center max-w-4xl mx-auto"
         >
           <h2 className="text-5xl md:text-7xl font-bold text-white mb-6 tracking-tighter">
-            Hardware de <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">Nível Militar.</span> <br />Design de Nível Galeria.
+            Hardware de <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-500 via-orange-400 to-yellow-400">Nível Militar.</span> <br />Design de Nível Galeria.
           </h2>
           <p className="text-xl text-neutral-400 leading-relaxed">
             Explore nossa galeria de dispositivos perfeitamente integrados.
@@ -465,14 +483,14 @@ const Catalog = () => {
             {duplicatedProducts.map((product, index) => (
               <div
                 key={`${product.id}-${index}`}
-                className="relative w-72 md:w-80 h-96 flex-shrink-0 rounded-[2rem] overflow-hidden border border-white/10 shadow-xl group"
+                className="relative w-72 md:w-80 h-96 flex-shrink-0 rounded-[2rem] overflow-hidden border border-white/10 shadow-xl group hover:shadow-[0_0_40px_rgba(249,115,22,0.5)] hover:border-orange-500/50 transition-all duration-500"
                 onClick={() => handleProductClick(product)}
               >
                 <img src={product.image} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale group-hover:grayscale-0 opacity-60 group-hover:opacity-100" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent opacity-80 group-hover:opacity-40 transition-opacity duration-300" />
 
                 <div className="absolute inset-x-0 bottom-0 p-8 flex flex-col pointer-events-none">
-                  <span className="text-cyan-400 font-bold text-xs uppercase tracking-wider mb-2">{product.category}</span>
+                  <span className="text-orange-400 font-bold text-xs uppercase tracking-wider mb-2">{product.category}</span>
                   <h4 className="text-white font-bold text-2xl whitespace-normal leading-tight">{product.name}</h4>
                 </div>
               </div>
@@ -508,7 +526,7 @@ const Catalog = () => {
               >
                 {/* FRONT - Image only */}
                 <div
-                  className="absolute inset-0 cursor-pointer rounded-[2rem] overflow-hidden shadow-[0_0_80px_rgba(34,211,238,0.15)] border border-white/10 group bg-neutral-900"
+                  className="absolute inset-0 cursor-pointer rounded-[2rem] overflow-hidden shadow-[0_0_80px_rgba(249,115,22,0.15)] hover:shadow-[0_0_100px_rgba(249,115,22,0.4)] border border-white/10 transition-shadow duration-500 group bg-neutral-900"
                   style={{ backfaceVisibility: 'hidden' }}
                   onClick={() => setIsModalFlipped(true)}
                 >
@@ -535,16 +553,16 @@ const Catalog = () => {
 
                 {/* BACK - Specs */}
                 <div
-                  className="absolute inset-0 bg-neutral-900 rounded-[2rem] p-8 md:p-14 border border-cyan-400/30 shadow-[0_0_80px_rgba(34,211,238,0.15)] flex flex-col justify-between"
+                  className="absolute inset-0 bg-neutral-900 rounded-[2rem] p-8 md:p-14 border border-orange-400/30 shadow-[0_0_80px_rgba(249,115,22,0.15)] hover:shadow-[0_0_100px_rgba(249,115,22,0.4)] transition-shadow duration-500 flex flex-col justify-between"
                   style={{ backfaceVisibility: 'hidden', transform: 'rotateY(180deg)' }}
                 >
                   <div>
                     <div className="flex justify-between items-start mb-8">
                       <div>
-                        <div className="w-12 h-12 bg-cyan-500/10 rounded-full flex items-center justify-center mb-6">
-                          <Cpu className="w-6 h-6 text-cyan-400" />
+                        <div className="w-12 h-12 bg-orange-500/10 rounded-full flex items-center justify-center mb-6">
+                          <Cpu className="w-6 h-6 text-orange-400" />
                         </div>
-                        <span className="text-cyan-400 font-bold text-sm uppercase tracking-wider mb-2 block">{selectedProduct.category}</span>
+                        <span className="text-orange-400 font-bold text-sm uppercase tracking-wider mb-2 block">{selectedProduct.category}</span>
                         <h3 className="text-4xl md:text-5xl font-bold text-white tracking-tight leading-tight">{selectedProduct.name}</h3>
                       </div>
                       <button onClick={() => { setSelectedProduct(null); setIsModalFlipped(false); }} className="p-2 bg-white/5 hover:bg-white/10 border border-white/10 rounded-full text-white transition-colors cursor-pointer">
@@ -552,7 +570,7 @@ const Catalog = () => {
                       </button>
                     </div>
 
-                    <div className="w-full h-[1px] bg-gradient-to-r from-cyan-500/50 to-transparent mb-8" />
+                    <div className="w-full h-[1px] bg-gradient-to-r from-orange-500/50 to-transparent mb-8" />
 
                     <p className="text-neutral-300 text-lg md:text-xl leading-relaxed whitespace-normal">
                       {selectedProduct.description}
@@ -588,7 +606,7 @@ const LocationMap = () => {
           className="text-center mb-16"
         >
           <h2 className="text-5xl md:text-7xl font-bold text-white tracking-tighter mb-6">
-            Localização do <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">Projeto</span>
+            Localização do <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-500 via-orange-400 to-yellow-400">Projeto</span>
           </h2>
           <p className="text-xl text-neutral-400 max-w-2xl mx-auto">
             O ponto de convergência entre alta tecnologia e sofisticação arquitetônica.
@@ -600,7 +618,7 @@ const LocationMap = () => {
           whileInView={{ opacity: 1, filter: "brightness(1) blur(0px)" }}
           viewport={{ once: false, amount: 0.2 }}
           transition={{ duration: 1, ease: "easeInOut" }}
-          className="group relative w-full max-w-4xl mx-auto rounded-[2rem] border border-white/10 bg-neutral-900/20 backdrop-blur-3xl overflow-hidden p-8 sm:p-12 shadow-[0_20px_50px_rgba(0,0,0,0.5)] flex flex-col md:flex-row items-center justify-between text-left min-h-[400px] hover:border-cyan-400/50 transition-all duration-700"
+          className="group relative w-full max-w-4xl mx-auto rounded-[2rem] border border-white/10 bg-neutral-900/20 backdrop-blur-3xl overflow-hidden p-8 sm:p-12 shadow-[0_20px_50px_rgba(0,0,0,0.5)] flex flex-col md:flex-row items-center justify-between text-left min-h-[400px] hover:border-orange-400/50 hover:shadow-[0_0_40px_rgba(249,115,22,0.3)] transition-all duration-700"
         >
           {/* Imagem de Fundo Dinâmica */}
           <div
@@ -610,17 +628,17 @@ const LocationMap = () => {
           <div className="absolute inset-0 bg-gradient-to-t md:bg-gradient-to-r from-black via-black/80 to-transparent z-0 group-hover:from-black/90 transition-all duration-700" />
 
           <div className="relative z-10 flex flex-col md:w-2/3 mb-8 md:mb-0">
-            <div className="w-16 h-16 bg-cyan-500/10 border border-cyan-400/30 rounded-full flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-cyan-500/20 transition-all duration-500">
-              <MapPin className="w-8 h-8 text-cyan-400" />
+            <div className="w-16 h-16 bg-orange-500/10 border border-orange-400/30 rounded-full flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-orange-500/20 group-hover:shadow-[0_0_20px_rgba(249,115,22,0.5)] transition-all duration-500">
+              <MapPin className="w-8 h-8 text-orange-400" />
             </div>
 
-            <h3 className="text-3xl font-bold text-white mb-6 tracking-tight group-hover:text-cyan-400 transition-colors duration-500">Loteamento Royal Boulevard Residence e Resort</h3>
+            <h3 className="text-3xl font-bold text-white mb-6 tracking-tight group-hover:text-orange-400 transition-colors duration-500">Loteamento Royal Boulevard Residence e Resort</h3>
 
             <div className="space-y-3 text-neutral-300">
-              <p className="flex items-center gap-3"><span className="w-2 h-2 rounded-full bg-cyan-400/50 shadow-[0_0_10px_rgba(34,211,238,0.8)]"></span> <strong className="text-white">Rua:</strong> Fábio Adas</p>
-              <p className="flex items-center gap-3"><span className="w-2 h-2 rounded-full bg-cyan-400/50 shadow-[0_0_10px_rgba(34,211,238,0.8)]"></span> <strong className="text-white">Detalhes:</strong> Quadra 09, Lote 23</p>
-              <p className="flex items-center gap-3"><span className="w-2 h-2 rounded-full bg-cyan-400/50 shadow-[0_0_10px_rgba(34,211,238,0.8)]"></span> <strong className="text-white">CEP:</strong> 16016-510</p>
-              <p className="flex items-center gap-3"><span className="w-2 h-2 rounded-full bg-cyan-400/50 shadow-[0_0_10px_rgba(34,211,238,0.8)]"></span> <strong className="text-white">Cidade:</strong> Araçatuba - SP</p>
+              <p className="flex items-center gap-3"><span className="w-2 h-2 rounded-full bg-orange-400/50 shadow-[0_0_10px_rgba(249,115,22,0.8)]"></span> <strong className="text-white">Rua:</strong> Fábio Adas</p>
+              <p className="flex items-center gap-3"><span className="w-2 h-2 rounded-full bg-orange-400/50 shadow-[0_0_10px_rgba(249,115,22,0.8)]"></span> <strong className="text-white">Detalhes:</strong> Quadra 09, Lote 23</p>
+              <p className="flex items-center gap-3"><span className="w-2 h-2 rounded-full bg-orange-400/50 shadow-[0_0_10px_rgba(249,115,22,0.8)]"></span> <strong className="text-white">CEP:</strong> 16016-510</p>
+              <p className="flex items-center gap-3"><span className="w-2 h-2 rounded-full bg-orange-400/50 shadow-[0_0_10px_rgba(249,115,22,0.8)]"></span> <strong className="text-white">Cidade:</strong> Araçatuba - SP</p>
             </div>
           </div>
 
@@ -667,7 +685,7 @@ const Footer = () => {
 
 export default function App() {
   return (
-    <div className="min-h-screen bg-black text-neutral-50 selection:bg-cyan-500/30 selection:text-cyan-50 font-sans">
+    <div className="min-h-screen bg-black text-neutral-50 selection:bg-orange-500/30 selection:text-orange-50 font-sans">
       <Hero />
       <StatementSection />
       <StickyOverview />
